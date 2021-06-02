@@ -7,8 +7,8 @@ type IDog interface {
 }
 
 type Dog struct {
-	Icat *ICat   `@Autowired:"kitty"`
-	Rabb *Rabbit `@Autowired:"*"`
+	Icat *ICat   `inject:"kitty"`
+	Rabb *Rabbit `inject:"*"`
 }
 
 func (d *Dog) DoSomething() {

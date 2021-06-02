@@ -3,9 +3,9 @@ package sub
 import "fmt"
 
 type Rabbit struct {
-	// Husky *Dog `@Autowired:"*"`
+	// Husky *Dog `inject:"*"`
 }
 
 func (r *Rabbit) Jump() {
-	fmt.Println("Rabbit jump");
+	fmt.Println("Rabbit jump")
 }

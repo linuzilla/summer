@@ -17,17 +17,17 @@ is idiomatic Go code should be use or how, so ... mimic other language might be 
 
 To install summer, use go get:
 ```
-go get github.com/blue-saber/summer
+go get github.com/linuzilla/summer
 ```
 
 ### How to Use
-Add tag "@Autowired" on Fields (as following example) need a dependency injection.
+Add tag "inject" on Fields (as following example) need a dependency injection.
 Put "*" as it's value which means it require a Type-based injection,
 or put a name, "kitty" for example, which means a Name-baed injection.
 ```go
 type Dog struct {
-	Icat *ICat   `@Autowired:"kitty"`
-	Rabb *Rabbit `@Autowired:"*"`
+	Icat *ICat   `inject:"kitty"`
+	Rabb *Rabbit `inject:"*"`
 }
 ```
 For a Interface pointer or a private field, a proper setter is required to make injection working properly.
@@ -53,7 +53,7 @@ The main func look simething like this ...
 package main
 
 import (
-	"github.com/blue-saber/summer"
+	"github.com/linuzilla/summer"
 )
 
 func main() {

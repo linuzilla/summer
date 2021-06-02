@@ -1,20 +1,20 @@
 package main
 
 import (
-	"fmt"
-	"github.com/blue-saber/summer"
 	"./sub"
+	"fmt"
+	"github.com/linuzilla/summer"
 )
 
 func main() {
-	applicationContext := summer.NewSummer();
+	applicationContext := summer.NewSummer()
 
-	applicationContext.Add(new (sub.Dog), new (sub.Tiger))
-	applicationContext.AddWithName("kitty", new (sub.Cat))
+	applicationContext.Add(new(sub.Dog), new(sub.Tiger))
+	applicationContext.AddWithName("kitty", new(sub.Cat))
 	// applicationContext.Add(new (sub.Tiger))
-	applicationContext.AddWithName("rabbit", new (sub.Rabbit))
+	applicationContext.AddWithName("rabbit", new(sub.Rabbit))
 
-	done := applicationContext.Autowiring(func (err bool) {
+	done := applicationContext.Autowiring(func(err bool) {
 		if err {
 			fmt.Println("Failed to autowiring.")
 		} else {
@@ -25,11 +25,11 @@ func main() {
 				rabbit.Jump()
 			}
 		}
-	});
+	})
 
 	err := <-done
 
-	if ! err {
+	if !err {
 		var icat sub.ICat
 
 		if result := applicationContext.Get(&icat); result != nil {
